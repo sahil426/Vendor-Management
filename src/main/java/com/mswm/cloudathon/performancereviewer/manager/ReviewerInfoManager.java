@@ -21,8 +21,8 @@ public class ReviewerInfoManager {
         this.reviewerInfoService = reviewerInfoService;
     }
 
-    public ResponseEntity<Object> getContingents(ReviewerRequest reviewerRequest){
-        ProcessContingentResponse processContingentResponse = reviewerInfoService.getContingents(reviewerRequest);
+    public ResponseEntity<Object> getContingents(String id){
+        ProcessContingentResponse processContingentResponse = reviewerInfoService.getContingents(id);
         return new ResponseEntity<>(processContingentResponse, HttpStatus.OK);
     }
 }
