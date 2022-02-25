@@ -23,11 +23,11 @@ public class ReviewerInfoController {
     }
 
 
-    @RequestMapping(value = "getContingents", method = RequestMethod.POST)
+    @RequestMapping(value = "getContingents/{id}", method = RequestMethod.GET)
     public @ResponseBody
-    ResponseEntity<Object> getContingents(@RequestBody ReviewerRequest reviewerRequest){
+    ResponseEntity<Object> getContingents(@PathVariable String id){
 
-        final ResponseEntity<Object>  reviewerInfo = reviewerInfoManager.getContingents(reviewerRequest);
+        final ResponseEntity<Object>  reviewerInfo = reviewerInfoManager.getContingents(id);
         return reviewerInfo;
     }
 }

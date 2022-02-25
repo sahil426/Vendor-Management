@@ -20,7 +20,7 @@ import org.springframework.util.StringUtils;
 public class ReviewerInfoService {
 
 
-    public ProcessContingentResponse getContingents(ReviewerRequest reviewerRequest) {
+    public ProcessContingentResponse getContingents(String id) {
 
         ProcessContingentResponse processContingentResponse = null;
         try {
@@ -41,9 +41,9 @@ public class ReviewerInfoService {
 
                     for (People people : fwdResponse.getPeople()) {
                         log.info("Inside getContingents with user {}",people);
-                        if (reviewerRequest.getLoginId().equalsIgnoreCase(people.getReviewerInfo().getUserId())) {
+                        if (id.equalsIgnoreCase(people.getReviewerInfo().getUserId())) {
 
-                            log.info("Inside getContingents with user {}", reviewerRequest.getLoginId());
+                            log.info("Inside getContingents with user {}", id);
                             processContingentResponse.setPeople(people);
 
                             break;
